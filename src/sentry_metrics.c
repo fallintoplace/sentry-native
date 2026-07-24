@@ -140,6 +140,7 @@ sentry__metrics_startup(const sentry_options_t *options)
         return;
     }
 
+    sentry__batcher_setname(batcher, "sentry-metrics");
     sentry__batcher_startup(batcher, options);
     sentry_batcher_t *old = sentry__batcher_swap(&g_batcher, batcher);
 

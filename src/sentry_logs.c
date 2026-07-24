@@ -636,6 +636,7 @@ sentry__logs_startup(const sentry_options_t *options)
         return;
     }
 
+    sentry__batcher_setname(batcher, "sentry-logs");
     sentry__batcher_startup(batcher, options);
     sentry_batcher_t *old = sentry__batcher_swap(&g_batcher, batcher);
 
